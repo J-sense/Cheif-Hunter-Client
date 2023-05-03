@@ -5,7 +5,7 @@ import { updateProfile } from 'firebase/auth';
 
 
 const Singup = () => {
-    const {createUser,updateuserData} = useContext(AuthContext)
+    const {createUser,UpdateUserData} = useContext(AuthContext)
     const [error,setError] =useState('')
     const [success,setSucess]= useState()
     const handleLogin = event =>{
@@ -14,31 +14,33 @@ const Singup = () => {
         const name =event.target.name.value;
         const photo =event.target.photo.value;
         const password =event.target.password.value;
+        // UpdateProfile(result.user,name,photo)
         // console.log(email,password)
         createUser(email,password)
         .then((result)=>{
-            const logggoduser = result.user
-            updateProfile(result.user,name,photo)
+            const logggoduser = result.user;
+            console.log(logggoduser)
+            UpdateProfile(result.user,name,photo)
             setSucess(alert('sucessfully'))
         })
         .catch(err=>{
             setError(err.message);
             setError('')
         })
-        const updateuserData =(user,name,photo) =>{
-            updateProfile(user,{
-                displayName :name,
-                photoURL:photo
+   
+
+        const UpdateProfile = (user, name, photo) => {
+            UpdateUserData(user, {
+                displayName: name,
+                photoURL: photo
             })
-            .then(() =>{
-                console.log('user name update')
-            })
-            .catch(err=>{
-                (err.message)
-            })
-        }
-        if(password.length < 6){
-            setError('password should be atleast six charecteer')
+                .then(() => {
+                    // Profile updated!
+                    // ...
+                }).catch((error) => {
+                    // An error occurred
+                    // ...
+                });
         }
        
     

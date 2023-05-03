@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider';
 
 const Login = () => {
-    const {signIn} =useContext(AuthContext)
+    const {signIn,UpdateUserData} =useContext(AuthContext)
     const handleLogin = event =>{
         event.preventDefault();
         const email =event.target.email.value;
@@ -12,11 +12,27 @@ const Login = () => {
         signIn(email,password)
         .then((reult)=>{
             const signed = reult.user;
-            console.log(signed)
+            console.log(signed);
+            UpdateProfile(user,name,photo)
         })
         .catch(err=>{
             console.log(err)
         })
+
+
+        const UpdateProfile = (user, name, photo) => {
+            UpdateUserData(user, {
+                displayName: name,
+                photoURL: photo
+            })
+                .then(() => {
+                    // Profile updated!
+                    // ...
+                }).catch((error) => {
+                    // An error occurred
+                    // ...
+                });
+        }
     
     }
     return (

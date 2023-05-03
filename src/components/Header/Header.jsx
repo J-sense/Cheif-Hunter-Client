@@ -6,7 +6,21 @@ import { AuthContext } from '../AuthProvider';
 // import logo from '../../assets/logo-light.png'
 import { BeakerIcon,UserCircleIcon } from '@heroicons/react/24/solid'
 const Header = () => {
-    const { createUser,user } = useContext(AuthContext)
+    const { createUser,user,LogOutUser } = useContext(AuthContext);
+    const HandleLogOut =()=>{
+        LogOutUser()
+        .then(() => {
+            // Sign-out successful.
+            toast.success('Log Out Successfully');
+        })
+        .catch((error) => {
+            // An error happened.
+            toast.error(error.message);
+        });
+
+    }
+   
+    
     return (
         <div>
             <div className="navbar bg-stone-900 text-white  ps-36">
@@ -43,12 +57,37 @@ const Header = () => {
                 </div>
                 <div className="navbar-end pe-36">
 
-                    <div className="w-10 rounded-full border-white mr-3">
+               { user &&
+                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                            <div className="w-10 rounded-full">
+                                <img
+                                    src={user.photoURL}
+                                    alt=""
+                                    title={user.displayName}
+                                    className="avatar-img"
+                                />
+                            </div>
+                        </label>
+                    }
+                    {
+                        user ?
+                            <button onClick={HandleLogOut}  className="bg-gradient-to-r from-emerald-400 to-emerald-700 text-lg rounded-md px-4 py-2 text-white font-semibold">
+                                Log Out
+                            </button>
+                            :
+                            <Link to='/login'>
+                                <button className="bg-gradient-to-r from-emerald-400 to-emerald-700 text-lg rounded-md px-4 py-2 text-white font-semibold">
+                                    Login
+                                </button>
+                            </Link>
+                    }
+
+                    {/* <div className="w-10 rounded-full border-white mr-3">
                        <UserCircleIcon />
                     </div>
                     {
                         user ? <button className="btn btn-ghost">LogOut</button> :  <Link to='/login'>Login</Link>
-                    }
+                    } */}
                     
 
                 </div>
