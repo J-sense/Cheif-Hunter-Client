@@ -21,6 +21,7 @@ const Singup = () => {
             const logggoduser = result.user;
             console.log(logggoduser)
             UpdateProfile(result.user,name,photo)
+            
             setSucess(alert('sucessfully'))
         })
         .catch(err=>{

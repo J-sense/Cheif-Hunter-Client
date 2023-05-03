@@ -21,7 +21,7 @@ const Section2 = ({ category }) => {
                     <p className="text-lg">Likes : {likes} stars</p>
                     <div className="justify-center">
                         <Link to={`/recipe/${id}`}>
-                            <button className='bg-orange-500 w-full font-semibold text-white py-3 focus:outline-none  rounded mt-3 transform transition duration-300 hover:scale-105'>View Recipies</button>
+                            <button className='bg-orange-500 w-full font-semibold text-white py-3 focus:outline-none  rounded mt-3 transform transition duration-300 hover:scale-105'><Link to='/cheif'>View Recipies</Link></button>
                         </Link>
                     </div>
                 </div>

@@ -14,6 +14,8 @@ import Login from './components/Pages/Login/Login.jsx';
 import Singup from './components/Pages/Login/Singup.jsx';
 import AuthProvider from './components/AuthProvider.jsx';
 import Loginlayout from './components/Pages/Login/Loginlayout.jsx';
+import Cheif from './components/Pages/Cheif.jsx';
+import Private from './components/routs/Private.jsx';
 
 const router = createBrowserRouter([
   {
@@ -47,13 +49,19 @@ const router = createBrowserRouter([
         path: '/blog',
         element: <Blog></Blog>
       },
+ 
    
    
 
 
     ]
   },
+  {
+    path: '/cheif',
+    element: <Private><Cheif></Cheif></Private>
+  }
 ]);
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
