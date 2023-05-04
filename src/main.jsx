@@ -57,7 +57,7 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path: '/cheif',
+    path: '/alldata/:id',
     element: <Private><Cheif></Cheif></Private>
   }
 ]);

@@ -1,13 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider';
 
 const Login = () => {
+    const[success,setSuccess] =useState('')
     const location =useLocation()
     const navigate =useNavigate()
     let from = location.state?.from?.pathname || "/"
     console.log(location)
-    const {signIn,user,googlepopup,UpdateUserData} =useContext(AuthContext)
+    const {signIn,user,GoogleSignIn,UpdateUserData,GithubSignIn} =useContext(AuthContext)
     const handleLogin = event =>{
         event.preventDefault();
         const email =event.target.email.value;
@@ -41,16 +42,30 @@ const Login = () => {
      
     
     }
-    const handlegogle = () => {
-        googlepopup()
-          .then((result) => {
-            const userlogged = result.user;
-            // do something with userlogged
-          })
-          .catch((err) => {
-            const errorMessage = err.message;
-          });
-      }
+    const HandleGoogleLogin = () => {
+        GoogleSignIn()
+            .then(result => {
+                const loggerUser = result.user
+                // console.log(loggerUser);
+                toast.success("User Sign up successfully by google");
+            })
+            .catch(error => {
+                const ErrorMessage = error.message;
+                toast.error(error.message);
+            })
+    }
+    const HandleGithubLogin = () => {
+        GithubSignIn()
+            .then(result => {
+                const loggedUser = result.user;
+                // console.log(loggedUser);
+                toast.success("User Sign up successfully by github");
+            })
+            .catch(error => {
+                const ErrorMessage = error.message;
+                toast.error(error.message);
+            })
+    }
 
     return (
         <form onSubmit={handleLogin}>
@@ -81,7 +96,8 @@ const Login = () => {
                             </div>
 
                             <div className='text-center'>
-                                <button onSubmit={handlegogle} className="btn btn-outline">Button</button>
+                                <button onClick={HandleGoogleLogin} className="btn btn-outline">Button</button>
+                                <button onClick={HandleGithubLogin} className="btn btn-outline">GitButton</button>
                             </div>
                         </div>
                     </div>
