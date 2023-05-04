@@ -1,8 +1,12 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider';
 
 const Login = () => {
+    const location =useLocation()
+    const navigate =useNavigate()
+    let from = location.state?.from?.pathname || "/"
+    console.log(location)
     const {signIn,user,googlepopup,UpdateUserData} =useContext(AuthContext)
     const handleLogin = event =>{
         event.preventDefault();
@@ -14,6 +18,7 @@ const Login = () => {
             const signed = reult.user;
             console.log(signed);
             // UpdateProfile(user,name,photo)
+           navigate(from, {replace :true})
         })
         .catch(err=>{
             console.log(err)
