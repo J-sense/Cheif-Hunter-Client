@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider';
 
 const Login = () => {
-    const {signIn,UpdateUserData} =useContext(AuthContext)
+    const {signIn,user,googlepopup,UpdateUserData} =useContext(AuthContext)
     const handleLogin = event =>{
         event.preventDefault();
         const email =event.target.email.value;
@@ -13,7 +13,7 @@ const Login = () => {
         .then((reult)=>{
             const signed = reult.user;
             console.log(signed);
-            UpdateProfile(user,name,photo)
+            // UpdateProfile(user,name,photo)
         })
         .catch(err=>{
             console.log(err)
@@ -32,9 +32,21 @@ const Login = () => {
                     // An error occurred
                     // ...
                 });
-        }
+        };
+     
     
     }
+    const handlegogle = () => {
+        googlepopup()
+          .then((result) => {
+            const userlogged = result.user;
+            // do something with userlogged
+          })
+          .catch((err) => {
+            const errorMessage = err.message;
+          });
+      }
+
     return (
         <form onSubmit={handleLogin}>
             <div className="hero min-h-screen bg-base-200">
@@ -61,6 +73,10 @@ const Login = () => {
                                 <button className="btn btn-primary">Login</button>
 
                                 <p>Or <Link to='/signup'>Signup</Link> using</p>
+                            </div>
+
+                            <div className='text-center'>
+                                <button onSubmit={handlegogle} className="btn btn-outline">Button</button>
                             </div>
                         </div>
                     </div>

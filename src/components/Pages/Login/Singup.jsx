@@ -5,30 +5,30 @@ import { updateProfile } from 'firebase/auth';
 
 
 const Singup = () => {
-    const {createUser,UpdateUserData} = useContext(AuthContext)
-    const [error,setError] =useState('')
-    const [success,setSucess]= useState()
-    const handleLogin = event =>{
+    const { createUser, UpdateUserData,googlepopup } = useContext(AuthContext)
+    const [error, setError] = useState('')
+    const [success, setSucess] = useState()
+    const handleLogin = event => {
         event.preventDefault();
-        const email =event.target.email.value;
-        const name =event.target.name.value;
-        const photo =event.target.photo.value;
-        const password =event.target.password.value;
+        const email = event.target.email.value;
+        const name = event.target.name.value;
+        const photo = event.target.photo.value;
+        const password = event.target.password.value;
         // UpdateProfile(result.user,name,photo)
         // console.log(email,password)
-        createUser(email,password)
-        .then((result)=>{
-            const logggoduser = result.user;
-            console.log(logggoduser)
-            UpdateProfile(result.user,name,photo)
-            
-            setSucess(alert('sucessfully'))
-        })
-        .catch(err=>{
-            setError(err.message);
-            setError('')
-        })
-   
+        createUser(email, password)
+            .then((result) => {
+                const logggoduser = result.user;
+                console.log(logggoduser)
+                UpdateProfile(result.user, name, photo)
+
+                setSucess(alert('sucessfully'))
+            })
+            .catch(err => {
+                setError(err.message);
+                setError('')
+            })
+
 
         const UpdateProfile = (user, name, photo) => {
             UpdateUserData(user, {
@@ -43,21 +43,24 @@ const Singup = () => {
                     // ...
                 });
         }
-       
     
-    }
+
+
+    };
+   
+    
     return (
         <form onSubmit={handleLogin}>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row-reverse">
-                    
+
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>
                                 </label>
-                                <input type="text" name='name'  placeholder="name" className="input input-bordered" />
+                                <input type="text" name='name' placeholder="name" className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -75,7 +78,7 @@ const Singup = () => {
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="text" name='password' required  placeholder="password" className="input input-bordered" />
+                                <input type="text" name='password' required placeholder="password" className="input input-bordered" />
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
@@ -91,9 +94,11 @@ const Singup = () => {
                             </div>
                             
                         </div>
+
                     </div>
                 </div>
             </div>
+
         </form>
     );
 };
