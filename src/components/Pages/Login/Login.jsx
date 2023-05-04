@@ -1,12 +1,14 @@
 import React, { useContext, useState } from 'react';
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider';
+import { toast } from 'react-hot-toast';
 
 const Login = () => {
     const[success,setSuccess] =useState('')
     const location =useLocation()
     const navigate =useNavigate()
-    let from = location.state?.from?.pathname || "/"
+    const from = location.state?.from?.pathname || '/';
+    console.log(from)
     console.log(location)
     const {signIn,user,GoogleSignIn,UpdateUserData,GithubSignIn} =useContext(AuthContext)
     const handleLogin = event =>{

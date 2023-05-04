@@ -7,24 +7,24 @@ import Section2 from './Section/section2';
 const Home = () => {
     const [categories, setCategories] = useState([])
     useEffect (()=>{
-        fetch("http://localhost:3000/alldata")
+        fetch("http://localhost:5000/alldata")
         .then(response => response.json())
         .then(data=>setCategories(data))
     },[])
-    console.log(categories)
+    // console.log(categories)
     return (
         <>
-            <div className='relative h-screen bg-[#050c1b]'>
-                <div className=' bg-black bg-opacity-50'>
-                    <img src={banner} alt="" className='w-[100%] h-[100vh]' />
+            <div className='relative '>
+                <div className=''>
+                    <img src={banner} alt="" className='lg:w-[100%] lg:h-[100vh]' />
 
                 </div>
-                <div class="absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center">
+                <div class="absolute top-8 left-2 lg:top-0 lg:left-0 lg:right-0 lg:bottom-0 flex justify-center items-center">
                     <div>
-                        <h1 className='text-white lg:text-7xl text-2xl font-serif'>FOOD MADE WITH LOVE</h1>
-                        <h1 className='text-center lg:text-2xl mt-11 text-white'>Take a slice of our perfect culinary heaven</h1>
-                        <div className='text-center mt-7'>
-                            <button st className='px-10 text-lg  py-5 bg-amber-500 text-white font-thin'>See Menu</button>
+                        <h1 className='text-white lg:text-7xl text-xl font-serif'>FOOD MADE WITH LOVE</h1>
+                        <h1 className='text-center lg:text-2xl lg:mt-11 text-white'>Take a slice of our perfect culinary heaven</h1>
+                        <div className='lg:text-center lg:mt-7 mt-3'>
+                            <button st className='lg:px-10 px-5 text-lg py-3  lg:py-5 bg-amber-500 text-white font-thin'>See Menu</button>
                         </div>
 
                     </div>
@@ -34,7 +34,7 @@ const Home = () => {
             <div>
                 <h1 className='text-slate-600 text-center mt-10 lg:text-7xl text-2xl font-serif underline'>Ranna,s Cheif</h1>
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-9 lg:ml-32 lg:mr-32'>
+            <div className='grid grid-cols-1 p-8 lg:p-0 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-9 lg:ml-32 lg:mr-32'>
                 {
                     categories.map((category)=><Section2 category={category}></Section2> )
                 }
@@ -43,7 +43,7 @@ const Home = () => {
             <div>
                 {/* <Section2></Section2> */}
             </div>
-            <div>
+            <div className='p-8 lg:p-0'>
                 <Section1></Section1>
             </div>
         </>

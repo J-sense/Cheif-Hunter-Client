@@ -23,7 +23,7 @@ const Header = () => {
     
     return (
         <div>
-            <div className="navbar bg-stone-900 text-white  ps-36">
+            <div className="navbar bg-stone-900 text-white">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -42,7 +42,7 @@ const Header = () => {
                         </ul>
                     </div>
                     <a className="btn btn-ghost normal-case text-xl">
-                        <img src={logo} alt="" className='text-white' />
+                        {/* <img src={logo} alt="" className='text-white' /> */}
                     </a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -55,7 +55,7 @@ const Header = () => {
 
                     </ul>
                 </div>
-                <div className="navbar-end pe-36">
+                <div className="navbar-end ">
 
                { user &&
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
