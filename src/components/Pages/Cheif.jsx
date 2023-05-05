@@ -106,7 +106,7 @@ const Cheif = () => {
                                     <span className="text-blue-500">etc...</span>
                                 </p>
                             </div>
-                            
+
                             <div>
                                 <p className="text-xl font-semibold">
                                     Rating : {allData?.recipes?.[0]?.first_recipe_rating}
@@ -175,7 +175,7 @@ const Cheif = () => {
                             </div>
                         </div>
                     </div>
-                    
+
                     <div className="card  w-full bg-white shadow-lg hover:-translate-y-2 hover:-translate-x-2 rounded-lg overflow-hidden border-2 border-gray-300 hover:shadow-xl transform transition duration-300 p-6 ease-in-out relative">
                         <div className="card-body">
                             <h2 className=" card-title text-2xl font-bold">

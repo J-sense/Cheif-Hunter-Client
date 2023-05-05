@@ -4,23 +4,23 @@ import logo from '../../assets/logo-light.png'
 import { AuthContext } from '../AuthProvider';
 // import { faAiOutlineUser } from 'react-icons/fa';
 // import logo from '../../assets/logo-light.png'
-import { BeakerIcon,UserCircleIcon } from '@heroicons/react/24/solid'
+import { BeakerIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 const Header = () => {
-    const { createUser,user,LogOutUser } = useContext(AuthContext);
-    const HandleLogOut =()=>{
+    const { createUser, user, LogOutUser } = useContext(AuthContext);
+    const HandleLogOut = () => {
         LogOutUser()
-        .then(() => {
-            // Sign-out successful.
-            toast.success('Log Out Successfully');
-        })
-        .catch((error) => {
-            // An error happened.
-            toast.error(error.message);
-        });
+            .then(() => {
+                // Sign-out successful.
+                toast.success('Log Out Successfully');
+            })
+            .catch((error) => {
+                // An error happened.
+                toast.error(error.message);
+            });
 
     }
-   
-    
+
+
     return (
         <div>
             <div className="navbar bg-stone-900 text-white">
@@ -42,7 +42,7 @@ const Header = () => {
                         </ul>
                     </div>
                     <a className="btn btn-ghost normal-case text-xl">
-                        {/* <img src={logo} alt="" className='text-white' /> */}
+                        <img src={logo} alt="" className='text-white ' />
                     </a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -57,7 +57,7 @@ const Header = () => {
                 </div>
                 <div className="navbar-end ">
 
-               { user &&
+                    {user &&
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
                                 <img
@@ -71,7 +71,7 @@ const Header = () => {
                     }
                     {
                         user ?
-                            <button onClick={HandleLogOut}  className="bg-gradient-to-r from-emerald-400 to-emerald-700 text-lg rounded-md px-4 py-2 text-white font-semibold">
+                            <button onClick={HandleLogOut} className="bg-gradient-to-r from-emerald-400 to-emerald-700 text-lg rounded-md px-4 py-2 text-white font-semibold">
                                 Log Out
                             </button>
                             :
@@ -88,7 +88,7 @@ const Header = () => {
                     {
                         user ? <button className="btn btn-ghost">LogOut</button> :  <Link to='/login'>Login</Link>
                     } */}
-                    
+
 
                 </div>
             </div>

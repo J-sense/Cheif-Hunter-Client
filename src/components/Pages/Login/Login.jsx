@@ -4,29 +4,29 @@ import { AuthContext } from '../../AuthProvider';
 import { toast } from 'react-hot-toast';
 
 const Login = () => {
-    const[success,setSuccess] =useState('')
-    const location =useLocation()
+    const [success, setSuccess] = useState('')
+    const location = useLocation()
     console.log(location);
     const navigate = useNavigate()
-    
-   
-    
-    const {signIn,user,GoogleSignIn,UpdateUserData,GithubSignIn} =useContext(AuthContext)
-    const handleLogin = event =>{
+
+
+
+    const { signIn, user, GoogleSignIn, UpdateUserData, GithubSignIn } = useContext(AuthContext)
+    const handleLogin = event => {
         event.preventDefault();
-        const email =event.target.email.value;
-        const password =event.target.password.value;
-        console.log(email,password)
-        signIn(email,password)
-        .then((reult)=>{
-            const signed = reult.user;
-            console.log(signed);
-            // UpdateProfile(user,name,photo)
-           navigate('/')
-        })
-        .catch(err=>{
-            console.log(err.message)
-        })
+        const email = event.target.email.value;
+        const password = event.target.password.value;
+        console.log(email, password)
+        signIn(email, password)
+            .then((reult) => {
+                const signed = reult.user;
+                console.log(signed);
+                // UpdateProfile(user,name,photo)
+                navigate('/')
+            })
+            .catch(err => {
+                console.log(err.message)
+            })
 
 
         const UpdateProfile = (user, name, photo) => {
@@ -42,8 +42,8 @@ const Login = () => {
                     // ...
                 });
         };
-     
-    
+
+
     }
     const HandleGoogleLogin = () => {
         GoogleSignIn()
@@ -74,7 +74,7 @@ const Login = () => {
         <form onSubmit={handleLogin}>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row-reverse">
-                    
+
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div className="card-body">
                             <div className="form-control">

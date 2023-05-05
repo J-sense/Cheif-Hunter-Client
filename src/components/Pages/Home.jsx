@@ -7,11 +7,11 @@ import Section from './Section/Section3/Section';
 
 const Home = () => {
     const [categories, setCategories] = useState([])
-    useEffect (()=>{
+    useEffect(() => {
         fetch("http://localhost:5000/alldata")
-        .then(response => response.json())
-        .then(data=>setCategories(data))
-    },[])
+            .then(response => response.json())
+            .then(data => setCategories(data))
+    }, [])
     // console.log(categories)
     return (
         <>
@@ -37,9 +37,9 @@ const Home = () => {
             </div>
             <div className='grid grid-cols-1 p-8 lg:p-0 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-9 lg:ml-32 lg:mr-32'>
                 {
-                    categories.map((category)=><Section2 category={category}></Section2> )
+                    categories.map((category) => <Section2 category={category}></Section2>)
                 }
-                
+
             </div>
             <div>
                 {/* <Section2></Section2> */}
@@ -48,7 +48,7 @@ const Home = () => {
                 <Section1></Section1>
             </div>
             <div className='p-8 lg:p-0 lg:ml-32 lg:mr-32'>
-            <h1 className='text-slate-600 text-center mt-10 lg:text-7xl text-2xl font-serif underline lg:mb-14'>Ranna,s Recipe</h1>
+                <h1 className='text-slate-600 text-center mt-10 lg:text-7xl text-2xl font-serif underline lg:mb-14'>Ranna,s Recipe</h1>
                 <Section></Section>
             </div>
         </>
