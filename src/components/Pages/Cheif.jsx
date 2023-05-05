@@ -34,7 +34,7 @@ const Cheif = () => {
 
     }, [])
     // console.log(allData)
-    console.log(allData);
+    console.log(allData?.recipes);
 
     const { bio, name, image, likes, number_of_recipes, years_of_experience, recipes } = allData
     return (
@@ -42,7 +42,7 @@ const Cheif = () => {
             <Header></Header>
             {/* chef banner section */}
             <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-10 lg:m-36">
-                <div className="">
+                <div className="lg:p-0 sm:-16">
                     <h1 className="text-3xl font-bold leading-[3rem] text-emerald-700 mb-3">
                         {name}
                     </h1>

@@ -16,11 +16,14 @@ import AuthProvider from './components/AuthProvider.jsx';
 import Loginlayout from './components/Pages/Login/Loginlayout.jsx';
 import Cheif from './components/Pages/Cheif.jsx';
 import Private from './components/routs/Private.jsx';
+import { Toaster } from 'react-hot-toast';
+import Errorpage from './components/Pages/Erorpage.jsx';
 
 const router = createBrowserRouter([
   {
     path :'/',
     element : <Loginlayout></Loginlayout>,
+    errorElement:<Errorpage></Errorpage>,
     children :[
       {
         path :'/',
@@ -39,6 +42,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement:<Errorpage></Errorpage>,
     children: [
       {
         path: '/',
@@ -68,6 +72,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
       <RouterProvider router={router} />
+      <Toaster />
     </AuthProvider>
 
   </React.StrictMode>,

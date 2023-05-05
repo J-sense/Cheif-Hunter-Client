@@ -5,9 +5,9 @@ import { toast } from 'react-hot-toast';
 
 const Login = () => {
     const [success, setSuccess] = useState('')
-    const location = useLocation()
-    console.log(location);
     const navigate = useNavigate()
+    const location = useLocation()
+    const from =location.state?.from?.pathname || '/';
 
 
 
@@ -22,7 +22,7 @@ const Login = () => {
                 const signed = reult.user;
                 console.log(signed);
                 // UpdateProfile(user,name,photo)
-                navigate('/')
+                navigate(from, {replace : true})
             })
             .catch(err => {
                 console.log(err.message)
@@ -51,6 +51,7 @@ const Login = () => {
                 const loggerUser = result.user
                 // console.log(loggerUser);
                 toast.success("User Sign up successfully by google");
+                navigate(from, {replace : true})
             })
             .catch(error => {
                 const ErrorMessage = error.message;
@@ -63,6 +64,7 @@ const Login = () => {
                 const loggedUser = result.user;
                 // console.log(loggedUser);
                 toast.success("User Sign up successfully by github");
+                navigate(from, {replace : true})
             })
             .catch(error => {
                 const ErrorMessage = error.message;
@@ -98,7 +100,7 @@ const Login = () => {
                                 <p>Or <Link to='/signup'>Signup</Link> using</p>
                             </div>
 
-                            <div className='text-center'>
+                            <div className='text-center flex gap-5'>
                                 <button onClick={HandleGoogleLogin} className="btn btn-outline">Button</button>
                                 <button onClick={HandleGithubLogin} className="btn btn-outline">GitButton</button>
                             </div>

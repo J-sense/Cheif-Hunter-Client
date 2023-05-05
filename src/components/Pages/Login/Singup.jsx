@@ -22,11 +22,11 @@ const Singup = () => {
                 console.log(logggoduser)
                 UpdateProfile(result.user, name, photo)
 
-                setSucess(alert('sucessfully'))
+                setSucess('sign up successfully')
             })
             .catch(err => {
                 setError(err.message);
-                setError('')
+                
             })
 
 
@@ -86,7 +86,7 @@ const Singup = () => {
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>
 
-                                <p>Already Have An Account? <Link to='/login'>SIgn up</Link> using</p>
+                                <p>Already Have An Account? <Link to='/login' className='text-blue-950'>Login </Link></p>
                             </div>
 
                             <div>
