@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import banner from '../../assets/9.jpg'
 import Section1 from './Section/Section1';
 import Section2 from './Section/section2';
+import Section from './Section/Section3/Section';
 
 
 const Home = () => {
@@ -45,6 +46,10 @@ const Home = () => {
             </div>
             <div className='p-8 lg:p-0'>
                 <Section1></Section1>
+            </div>
+            <div className='p-8 lg:p-0 lg:ml-32 lg:mr-32'>
+            <h1 className='text-slate-600 text-center mt-10 lg:text-7xl text-2xl font-serif underline lg:mb-14'>Ranna,s Recipe</h1>
+                <Section></Section>
             </div>
         </>
 
