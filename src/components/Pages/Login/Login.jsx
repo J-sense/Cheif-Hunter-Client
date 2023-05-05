@@ -6,10 +6,11 @@ import { toast } from 'react-hot-toast';
 const Login = () => {
     const[success,setSuccess] =useState('')
     const location =useLocation()
-    const navigate =useNavigate()
-    const from = location.state?.from?.pathname || '/';
-    console.log(from)
-    console.log(location)
+    console.log(location);
+    const navigate = useNavigate()
+    
+   
+    
     const {signIn,user,GoogleSignIn,UpdateUserData,GithubSignIn} =useContext(AuthContext)
     const handleLogin = event =>{
         event.preventDefault();
@@ -21,10 +22,10 @@ const Login = () => {
             const signed = reult.user;
             console.log(signed);
             // UpdateProfile(user,name,photo)
-           navigate(from, {replace :true})
+           navigate('/')
         })
         .catch(err=>{
-            console.log(err)
+            console.log(err.message)
         })
 
 

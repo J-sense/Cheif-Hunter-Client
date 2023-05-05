@@ -93,6 +93,7 @@ const ChefRecipes = () => {
                                     <span className="text-blue-500">etc...</span>
                                 </p>
                             </div>
+                            
                             <div>
                                 <p className="text-xl font-semibold">
                                     Rating : {allData?.recipes?.[0]?.first_recipe_rating}
