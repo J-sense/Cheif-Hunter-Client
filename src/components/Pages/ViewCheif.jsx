@@ -113,6 +113,8 @@ const ChefRecipes = () => {
                             </div>
                         </div>
                     </div>
+
+
                     <div className="card lg:w-96 w-full bg-white shadow-lg hover:-translate-y-2 hover:-translate-x-2 rounded-lg overflow-hidden border-2 border-gray-300 hover:shadow-xl transform transition duration-300 p-6 ease-in-out relative">
                         <div className="card-body">
                             <h2 className=" card-title text-2xl font-bold">
@@ -159,6 +161,7 @@ const ChefRecipes = () => {
                             </div>
                         </div>
                     </div>
+                    
                     <div className="card lg:w-96 w-full bg-white shadow-lg hover:-translate-y-2 hover:-translate-x-2 rounded-lg overflow-hidden border-2 border-gray-300 hover:shadow-xl transform transition duration-300 p-6 ease-in-out relative">
                         <div className="card-body">
                             <h2 className=" card-title text-2xl font-bold">

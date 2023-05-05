@@ -7,16 +7,33 @@ import Rating from 'react-rating';
 import { FaStar } from 'react-icons/fa';
 
 const Cheif = () => {
-    const [cheifdatas, setCheifdatas] = useState([])
+     const [disabledFirst, setDisabledFirst] = useState(false);
+    const [disabledSecond, setDisabledSecond] = useState(false);
+    const [disabledThird, setDisabledThird] = useState(false);
+    const FirstButtonDisable = () => {
+        toast.success("added to the favorite!");
+        setDisabledFirst(true);
+    };
+    const SecondButtonDisable = () => {
+        toast.success("added to the favorite!");
+        setDisabledSecond(true);
+    };
+    const ThirdButtonDisable = () => {
+        toast.success("added to the favorite!");
+        setDisabledThird(true);
+    };
+
+
+    const [allData, setAllData] = useState([])
     const { id } = useParams();
     useEffect(() => {
         fetch(`http://localhost:3000/alldata/${id}`)
             .then(response => response.json())
-            .then(data => setCheifdatas(data))
-        console.log(cheifdatas)
+            .then(data => setAllData(data))
+        console.log(allData)
     }, [])
 
-    const { bio, name, image, likes, number_of_recipes, years_of_experience, recipes } = cheifdatas
+    const { bio, name, image, likes, number_of_recipes, years_of_experience, recipes } = allData
     return (
         <div className='bg-[#DEE9EA] '>
             <Header></Header>
@@ -50,11 +67,16 @@ const Cheif = () => {
                     </div>
                 </div>
 
-            </div>
+                
+                
+
+
+            
 
 
 
 
+        </div>
         </div>
     );
 };
