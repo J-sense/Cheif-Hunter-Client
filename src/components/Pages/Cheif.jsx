@@ -28,7 +28,7 @@ const Cheif = () => {
     const [allData, setAllData] = useState([])
     const { id } = useParams();
     useEffect(() => {
-        fetch(`http://localhost:5000/alldata/${id}`)
+        fetch(`https://cheif-hunter-server-j-sense.vercel.app/alldata/${id}`)
             .then(response => response.json())
             .then(data => setAllData(data))
 

@@ -63,7 +63,7 @@ const router = createBrowserRouter([
   {
     path: '/alldata/:id',
     element: <Private><Cheif></Cheif></Private>,
-    louder: ({params}) => fetch(`http://localhost:5000/alldata/${params.id}`)
+    louder: ({params}) => fetch(`https://cheif-hunter-server-j-sense.vercel.app/alldata/${params.id}`)
   }
 ]);
 

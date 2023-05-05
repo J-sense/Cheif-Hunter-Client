@@ -8,7 +8,7 @@ import Section from './Section/Section3/Section';
 const Home = () => {
     const [categories, setCategories] = useState([])
     useEffect(() => {
-        fetch("http://localhost:5000/alldata")
+        fetch("https://cheif-hunter-server-j-sense.vercel.app/alldata")
             .then(response => response.json())
             .then(data => setCategories(data))
     }, [])
